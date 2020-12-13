@@ -1,0 +1,47 @@
+@import "template";
+
+.host {
+  display: flex;
+  align-items: center;
+  background-color: rgb(3, 37, 65);
+  min-height: 64px;
+
+  .container {
+    display: flex;
+    align-items: center;
+
+    .logo {
+      margin-right: 16px;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+
+      li {
+        color: #fff;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 8px;
+        margin-right: 14px;
+        cursor: pointer;
+      }
+    }
+
+    .user {
+      background-color: rgb(1, 210, 119);
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 14.4px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+    }
+  }
+}
