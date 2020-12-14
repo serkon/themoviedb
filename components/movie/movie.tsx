@@ -1,27 +1,27 @@
 export interface MoviePoster {
-    id: number;
-    original_language: string;
-    original_title: string;
-    overview: string;
-    popularity: number;
-    poster_path: string;
-    release_date: string;
-    title: string;
-    video: boolean;
-    vote_average: number;
-    vote_count: number;
+  id: number;
+  original_language: string;
+  original_title: string;
+  overview: string;
+  popularity: number;
+  poster_path: string;
+  release_date: string;
+  title: string;
+  video: boolean;
+  vote_average: number;
+  vote_count: number;
 }
 
 export interface MovieGroup {
-    title: MovieCategory;
-    items: MoviePoster[];
+  title: MovieCategory;
+  items: MoviePoster[];
 }
 
 export enum MovieCategory {
-    FREE = "Free to Watch",
-    TRENDING = "Trending",
-    POPULAR = "What's Popular",
-    NOW_PLAYING = "Now Playing",
-    UPCOMING = "Upcoming",
-    TOP_RATING = "Top Rating",
+  FREE = 'Free to Watch',
+  TRENDING = 'Trending',
+  POPULAR = "What's Popular",
+  NOW_PLAYING = 'Now Playing',
+  UPCOMING = 'Upcoming',
+  TOP_RATING = 'Top Rating',
 }

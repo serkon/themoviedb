@@ -1,3 +1,3 @@
-export const cssClasses = (...list: string[]) => {
-    return list.join(" ");
+export const cssClasses = (...list: string[]): string => {
+  return list.join(' ');
 }

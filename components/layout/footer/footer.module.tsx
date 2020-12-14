@@ -1,12 +1,11 @@
-import { cssClasses } from "~/utils/css-classes";
-import style from "./footer.module.scss";
+import style from './footer.module.scss';
 
-const menus = ["Movies", "TV Shows", "Peoples", "More"];
+const menus: string[] = ['Movies', 'TV Shows', 'Peoples', 'More'];
 
-export const Footer = () => {
-    return (
-        <footer className={style.host}>
-            footer
-        </footer>
-    );
+export const Footer = (): JSX.Element => {
+  return (
+    <footer className={style.host}>
+      footer
+    </footer>
+  );
 }
