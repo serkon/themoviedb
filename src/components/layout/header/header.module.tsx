@@ -1,4 +1,4 @@
-import { cssClasses } from '~/utils/css-classes';
+import { cssClasses } from '~/src/utils/css-classes';
 import style from './header.module.scss';
 
 const menus = ['Movies', 'TV Shows', 'Peoples', 'More'];

@@ -1,9 +1,9 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import styles from './list.module.scss'
-import { MovieListComponent } from '~/components/movie/list/list.module'
-import { MovieCategory, MovieGroup } from '~/components/movie/movie'
-import { cssClasses } from '~/utils/css-classes'
+import { MovieListComponent } from '~/src/components/movie/list/list.module'
+import { MovieCategory, MovieGroup } from '~/src/components/movie/movie'
+import { cssClasses } from '~/src/utils/css-classes'
 
 export default function List({ data }: { data: MovieGroup }): JSX.Element {
   return (

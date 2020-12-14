@@ -1,5 +1,5 @@
 import style from './poster.module.scss';
-import { MoviePoster } from '~/components/movie/movie';
+import { MoviePoster } from '~/src/components/movie/movie';
 
 const MoviePosterComponent = ({ poster }: { poster: MoviePoster }): JSX.Element => {
   return (

@@ -1,6 +1,6 @@
 import style from './list.module.scss';
-import { MovieGroup } from '~/components/movie/movie';
-import MoviePosterComponent from '~/components/movie/poster/poster.module';
+import { MovieGroup } from '~/src/components/movie/movie';
+import MoviePosterComponent from '~/src/components/movie/poster/poster.module';
 
 export const MovieListComponent: React.FC = ({ list }: { [key: string]: MovieGroup }): JSX.Element => {
   return (
