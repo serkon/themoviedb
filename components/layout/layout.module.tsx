@@ -3,7 +3,7 @@ import { Header } from './header/header.module';
 import { Footer } from './footer/footer.module';
 import styles from './layout.module.scss';
 
-export const Layout = ({ children }: { children: never }): JSX.Element => {
+export const Layout = ({ children }): JSX.Element => {
   return (
     <div className={styles.host}>
       <Header />
