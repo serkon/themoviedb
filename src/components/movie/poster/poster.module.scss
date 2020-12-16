@@ -1,11 +1,78 @@
-.movie {
-  border: 1px solid red;
-
-  .title {
-    border: 1px solid blue;
-  }
+.host {
+  max-width: 150px;
+  min-width: 150px;
+  position: relative;
 
   .path {
-    border: 1px solid green;
+    width: 100%;
+    min-height: calc(150px * 1.5);
+    height: calc(150px * 1.5);
+    border-radius: var(--imageBorderRadius);
+    overflow: hidden;
+  }
+
+  .raiting {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(var(--tmdbDarkBlue));
+    background-color: rgb(var(--tmdbDarkBlue));
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    padding: 2px;
+    position: relative;
+    margin-top: -20px;
+    margin-left: 15px;
+
+    .percent {
+      color: #fff;
+      font-size: 0.8em;
+      font-weight: 600;
+
+      sub {
+        top: -5px;
+        font-size: 7px;
+        left: 1px;
+      }
+    }
+
+    &::before {
+      border: 2px solid rgb(var(--accountTeal));
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      border-radius: 50%;
+    }
+  }
+
+  .content {
+    padding: 26px 10px 12px 10px;
+
+    .title {
+      font-size: 1em;
+
+      .link {
+        font-weight: 700;
+        color: #000;
+        display: inline-block;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    .date {
+      font-size: 1em;
+      margin: 0;
+      padding: 0;
+      color: rgba(0, 0, 0, 0.6);
+    }
   }
 }

@@ -1,0 +1,27 @@
+.host {
+  form {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    label {
+      outline: none;
+
+      input[type="text"],
+      input:not([type]) {
+        width: 100%;
+        outline: none;
+
+        &::-webkit-calendar-picker-indicator {
+          display: none;
+        }
+      }
+    }
+
+    input[type="submit"] {
+      outline: none;
+    }
+  }
+}

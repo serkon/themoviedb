@@ -13,15 +13,16 @@ export interface MoviePoster {
 }
 
 export interface MovieGroup {
-  title: MovieCategory;
+  title: MovieGroupTitle;
   items: MoviePoster[];
 }
 
-export enum MovieCategory {
+export enum MovieGroupTitle {
   FREE = 'Free to Watch',
   TRENDING = 'Trending',
-  POPULAR = "What's Popular",
-  NOW_PLAYING = 'Now Playing',
   UPCOMING = 'Upcoming',
   TOP_RATING = 'Top Rating',
+  LATEST = 'Latest',
+  POPULAR = 'What is Popular',
+  NOW_PLAYING = 'Now Playing',
 }
