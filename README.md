@@ -1,6 +1,6 @@
 It is a project developed with Next js that pulls data from The Movie Datase API.
 
-###NEXT JS Installation
+### NEXT JS Installation
 1. npx create-next-app nextjs-blog --use-npm --example "https://github.com/vercel/next-learn-starter/tree/master/learn-starter"
     `npm run dev`
     Starts the development server.
