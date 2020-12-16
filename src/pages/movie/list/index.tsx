@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import Head from 'next/head'
 import styles from './list.module.scss'
-import { MovieListComponent } from '~/src/components/movie/list/list.module'
-import { MovieCategory, MovieGroup } from '~/src/components/movie/movie'
+import { MovieGroupComponent } from '~/src/components/movie/group/group.module'
+import { MovieGroupTitle, MovieGroup } from '~/src/components/movie/movie'
 import { cssClasses } from '~/src/utils/css-classes'
 
 export default function List({ data }: { data: MovieGroup }): JSX.Element {
@@ -15,7 +15,7 @@ export default function List({ data }: { data: MovieGroup }): JSX.Element {
       <Link href="/posts/first"><a>movie detail!</a></Link>
       <ul>
         <li>
-          <MovieListComponent list={data}></MovieListComponent>
+          <MovieGroupComponent list={data}></MovieGroupComponent>
         </li>
       </ul>
     </div>
@@ -30,7 +30,7 @@ export async function getStaticProps(): Promise<{ props: { data: MovieGroup } }>
   }
 }
 
-export async function getMovieList(category: MovieCategory = MovieCategory.POPULAR): Promise<MovieGroup> {
+export async function getMovieList(category: MovieGroupTitle = MovieGroupTitle.POPULAR): Promise<MovieGroup> {
   const response = {
     page: 1,
     results: [

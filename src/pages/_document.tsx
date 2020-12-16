@@ -9,6 +9,7 @@ class Document extends NextDocument {
     return {
       ...initialProps,
       // shouldShow: true
+
     };
   }
 
@@ -18,7 +19,10 @@ class Document extends NextDocument {
         <Head>
           <style>
             {`#__next {
-                height: ${this.props.shouldShow ? '100%' : '0'}
+                display: flex;
+                flex-direction: column;
+                min-height: 100%;
+                flex-grow: 1;
               }
             `}
           </style>
