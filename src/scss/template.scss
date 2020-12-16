@@ -1,33 +1,42 @@
+@import "mixin/importer";
+
+%host {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  flex-grow: 1;
+}
+
 %container {
-  // border: 1px solid red;
-  // width: 100%;
-  // padding-right: 15px;
-  // padding-left: 15px;
-  // margin-right: auto;
-  // margin-left: auto;
+  margin: auto;
 
-  // Small devices (landscape phones, 576px and up)
-  @media (min-width: 576px) {
-    // max-width: 540px;
-  }
-
-  // Medium devices (tablets, 768px and up)
-  @media (min-width: 768px) {
-    // max-width: 720px;
-  }
-
-  // Large devices (desktops, 992px and up)
-  @media (min-width: 992px) {
-    // max-width: 720px;
-  }
-
-  // X-Large devices (large desktops, 1200px and up)
-  @media (min-width: 1200px) {
-    // max-width: 1140px;
-  }
-
-  // XX-Large devices (larger desktops, 1400px and up)
-  @media (min-width: 1400px) {
+  @include media(xxl) {
     max-width: 1320px;
   }
+}
+
+%h {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  width: 100%;
+}
+
+%h1 {
+  @extend %h;
+  font-size: 3em;
+  font-weight: 700;
+}
+
+%h2 {
+  @extend %h;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+%h3 {
+  @extend %h;
+  font-size: 2em;
+  font-weight: 600;
 }
