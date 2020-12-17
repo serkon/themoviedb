@@ -53,10 +53,11 @@ export default function Home(): JSX.Element {
 
 const getList = async (title) => {
   const endpointPath = Endpoint[title];
-  const response = await fetch(`https://api.themoviedb.org/3${endpointPath}?api_key=${api.key}&language=${api.language}&page=1`);
+  const response = await fetch(`${api.url}${endpointPath}?api_key=${api.key}&language=${api.language}&page=1`);
   const data = await response.json();
   return {
     title,
     items: data.results,
   };
 }
+

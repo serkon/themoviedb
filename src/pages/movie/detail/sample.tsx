@@ -1,7 +1,7 @@
 import React from 'react';
 import { myObserver } from '~/src/utils/resize-observe';
 
-export default class Detail extends React.Component {
+export default class Sample extends React.Component {
 
   componentDidMount(): void {
     const someEl = document.querySelector('body');
