@@ -10,6 +10,7 @@ import React from 'react';
 export default function Home(): JSX.Element {
   const groups = ['POPULAR', 'UPCOMING', 'TOP_RATING', 'TRENDING'];
   const [movieGroup, setMovieGroup] = useState<MovieGroup[]>([]);
+
   useEffect(() => {
     const list = groups.map((group) => getList(group));
     Promise.all(list).then(value => setMovieGroup(value));
@@ -25,7 +26,16 @@ export default function Home(): JSX.Element {
         <div className="container">
           <h1>Welcome.</h1>
           <h3>Millions of movies, TV shows and people to discover. Explore now.</h3>
-          <SelectComponent className={styles.search} placeholder="Search for a movie, tv show, person..."></SelectComponent>
+          <SelectComponent
+            className={styles.search}
+            placeholder="Search for a movie, tv show, person..."
+            onSelect={
+              (text) => {
+                console.log(text);
+              }
+            }
+            options={[]}
+          />
         </div>
       </section>
       <section>
