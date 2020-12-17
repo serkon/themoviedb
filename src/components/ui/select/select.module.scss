@@ -8,6 +8,7 @@
 
     label {
       outline: none;
+      position: relative;
 
       input[type="text"],
       input:not([type]) {
@@ -18,10 +19,53 @@
           display: none;
         }
       }
+
+      .datalist {
+        height: 0;
+        position: absolute;
+        list-style: none;
+        padding-left: 0;
+        width: calc(100% - 20px);
+        z-index: 1;
+        padding-top: 0px;
+        left: 20px;
+        border-radius: 0 0 10px 10px;
+        overflow: hidden;
+        box-shadow: 0 15px 15px #07597e82;
+
+        &.active {
+          height: auto;
+        }
+
+        .option {
+          padding-left: 12px;
+          background-color: #fff;
+          line-height: 40px;
+          color: #717171;
+          cursor: pointer;
+          text-align: left;
+          border: 1px solid transparent;
+          border-top-color: #afafaf26;
+          font-size: 15px;
+          font-style: initial;
+          font-weight: 300;
+          transition: all cubic-bezier(0.075, 0.82, 0.165, 1) 400ms;
+
+          &:hover {
+            background-color: #efefef;
+            border-bottom-color: #afafaf26;
+
+            & + .option {
+              border-top-color: transparent;
+            }
+          }
+        }
+      }
     }
 
     input[type="submit"] {
       outline: none;
+      z-index: 1;
     }
   }
 }
