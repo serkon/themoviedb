@@ -14,7 +14,7 @@ export const MoviePosterComponent = ({ poster, className }: { poster: MoviePoste
             <a className={styles.link} title={poster.original_title}>{poster.original_title}</a>
           </Link>
         </h2>
-        <div className={styles.date}>{poster.release_date}</div>
+        <div className={styles.date}>{(new Date(poster.release_date)).toDateString()}</div>
       </div>
     </div>
   )
