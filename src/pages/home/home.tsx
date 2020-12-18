@@ -29,6 +29,8 @@ export default function Home(): JSX.Element {
           <SelectComponent
             className={styles.search}
             placeholder="Search for a movie, tv show, person..."
+            max={10}
+            button={true}
             onSelect={
               (text) => {
                 console.log(text);

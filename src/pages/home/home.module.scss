@@ -28,58 +28,62 @@
       align-items: flex-end;
       flex-grow: 1;
 
-      form{
-        label{
-          width: 454px;
+      label {
+        width: 454px;
 
-          input[type="text"], input:not([type]) {
-            border: none;
-            background-color: #fff;
-            margin-top: auto;
-            height: 46px;
-            max-width: 100%;
-            line-height: 46px;
-            font-size: 1.1em;
-            color: rgba(0, 0, 0, 0.5);
-            border: none;
-            border-radius: 30px;
-            padding: 10px 20px;
+        input[type="text"],
+        input:not([type]) {
+          border: none;
+          background-color: #fff;
+          margin-top: auto;
+          height: 46px;
+          max-width: 100%;
+          line-height: 46px;
+          font-size: 1.1em;
+          color: rgba(0, 0, 0, 0.5);
+          border: none;
+          border-radius: 30px;
+          padding: 10px 20px;
 
-            @input placeholder {
-              color: inherit;
-              font: inherit;
-            }
+          @input placeholder {
+            color: inherit;
+            font: inherit;
+          }
 
-            @include media(xl) {
-              // max-width: 90%;
-            }
+          @include media(xl) {
+            // max-width: 90%;
+          }
 
-            @include media(xxl) {
-              // max-width: 80%;
-            }
+          @include media(xxl) {
+            // max-width: 80%;
           }
         }
-        input[type="submit"] {
-          display: inline-flex;
-          justify-content: center;
-          align-content: center;
-          align-items: center;
-          height: 46px;
-          padding: 10px 26px;
-          border: none;
-          background: linear-gradient(
-            to right,
-            rgba(30, 213, 169, 1) 0%,
-            rgba(1, 180, 228, 1) 100%
-          );
-          border-radius: 30px;
-          margin-left: -40px;
-          color: rgba(255, 255, 255, 1);
-          font-weight: 700;
 
-          &:hover{
-            color: rgba(var(--tmdbDarkBlue));
-          }
+        ul {
+          margin-left: 20px;
+          width: calc(100% - 20px);
+        }
+      }
+      input[type="submit"] {
+        display: inline-flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        height: 46px;
+        padding: 10px 26px;
+        border: none;
+        background: linear-gradient(
+          to right,
+          rgba(30, 213, 169, 1) 0%,
+          rgba(1, 180, 228, 1) 100%
+        );
+        border-radius: 30px;
+        margin-left: -40px;
+        color: rgba(255, 255, 255, 1);
+        font-weight: 700;
+
+        &:hover {
+          color: rgba(var(--tmdbDarkBlue));
         }
       }
     }

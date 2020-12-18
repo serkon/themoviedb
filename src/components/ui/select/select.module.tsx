@@ -6,25 +6,28 @@ type Select = {
   options: string[];
   placeholder?: string;
   onSelect?: (event?: string) => void;
+  max?: number;
+  button: boolean;
 }
 
-export const SelectComponent = ({ className, options, placeholder, onSelect }: Select): JSX.Element => {
+export const SelectComponent = ({ className, options, placeholder, onSelect, max, button }: Select): JSX.Element => {
   const inputEl = useRef(null);
   const ulEl = useRef(null);
   const [status, setStatus] = useState(false);
   const [search, setSearch] = useState<string[]>(options);
 
-  const beforeFormSubmit = () => {
+  const addToList = () => {
     const val = inputEl.current.value;
     const index = search.findIndex(item => item == val);
     (index > -1) && search.splice(index, 1);
-    setSearch([inputEl.current.value, ...search].splice(0, 5));
+    const merge = [inputEl.current.value, ...search];
+    setSearch(max ? merge.splice(0, max) : merge);
+    submit();
   }
 
-  const onFormSubmit = (event) => {
+  const submit = () => {
     event.preventDefault();
     onSelect(inputEl.current.value);
-    beforeFormSubmit();
     inputEl.current.value = '';
   }
 
@@ -37,40 +40,45 @@ export const SelectComponent = ({ className, options, placeholder, onSelect }: S
 
   const hide = () => {
     setTimeout(() => {
-      // ulEl.current.classList.remove(styles.active);
       setStatus(false);
     }, 400);
   }
 
   const show = () => {
     setTimeout(() => {
-      // ulEl.current.classList.add(styles.active);
       setStatus(true);
     }, 0);
   }
 
+  const enter = (e) => {
+    e.keyCode == 13 && addToList();
+  }
+
   return (
     <div className={`${className} ${styles.host}`}>
-      <form onSubmit={onFormSubmit}>
-        <label>
-          <input className={styles.input} placeholder={placeholder} autoComplete="off" ref={inputEl} onBlur={hide} onFocus={show} />
-          <ul className={`${styles.datalist} ${status ? styles.active : ''}`} ref={ulEl}>
-            {
-              search && search.map((option, index) => (
-                <li
-                  key={index}
-                  className={styles.option}
-                  onClick={() => selectItem(option)}
-                >
-                  {option}
-                </li>
-              ),
-              )
-            }
-          </ul>
-        </label>
-        <input type="submit" value="Search" />
-      </form>
+      <label>
+        <input className={styles.input} placeholder={placeholder} autoComplete="off" ref={inputEl}
+          onBlur={hide} onFocus={show} onKeyDown={enter}
+        />
+        <ul
+          className={`${1} ${styles.datalist} ${status ? styles.active : ''}`}
+          ref={ulEl}
+        >
+          {
+            search && search.map((option, index) => (
+              <li
+                key={index}
+                className={styles.option}
+                onClick={() => selectItem(option)}
+              >
+                {option}
+              </li>
+            ),
+            )
+          }
+        </ul>
+      </label>
+      <input type="submit" value="Search" hidden={!button} onClick={submit} />
     </div>
   )
 }
