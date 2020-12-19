@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './select.module.scss';
 
 type Select = {
@@ -7,21 +7,22 @@ type Select = {
   placeholder?: string;
   onSelect?: (event?: string) => void;
   max?: number;
-  button: boolean;
+  button?: boolean;
+  add?: boolean;
 }
 
-export const SelectComponent = ({ className, options, placeholder, onSelect, max, button }: Select): JSX.Element => {
+export const SelectComponent = ({ className, options, placeholder, onSelect, max, button, add }: Select): JSX.Element => {
   const inputEl = useRef(null);
   const ulEl = useRef(null);
-  const [status, setStatus] = useState(false);
-  const [search, setSearch] = useState<string[]>(options);
+  const [opener, setOpenerStatus] = useState(false);
 
   const addToList = () => {
-    const val = inputEl.current.value;
-    const index = search.findIndex(item => item == val);
-    (index > -1) && search.splice(index, 1);
-    const merge = [inputEl.current.value, ...search];
-    setSearch(max ? merge.splice(0, max) : merge);
+    if (add) {
+      const val = inputEl.current.value;
+      const index = options.findIndex(item => item == val);
+      (index > -1) && options.splice(index, 1);
+      options = [inputEl.current.value, ...options];
+    }
     submit();
   }
 
@@ -40,13 +41,13 @@ export const SelectComponent = ({ className, options, placeholder, onSelect, max
 
   const hide = () => {
     setTimeout(() => {
-      setStatus(false);
+      setOpenerStatus(false);
     }, 400);
   }
 
   const show = () => {
     setTimeout(() => {
-      setStatus(true);
+      setOpenerStatus(true);
     }, 0);
   }
 
@@ -61,11 +62,11 @@ export const SelectComponent = ({ className, options, placeholder, onSelect, max
           onBlur={hide} onFocus={show} onKeyDown={enter}
         />
         <ul
-          className={`${1} ${styles.datalist} ${status ? styles.active : ''}`}
+          className={`${1} ${styles.datalist} ${opener ? styles.active : ''}`}
           ref={ulEl}
         >
           {
-            search && search.map((option, index) => (
+            options && (max ? options.slice(0, max) : options).map((option, index) => (
               <li
                 key={index}
                 className={styles.option}
