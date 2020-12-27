@@ -1,15 +1,20 @@
-import '~/src/scss/app.scss'
-import { Layout } from '~/src/components/layout/layout.module'
+import React, { useState } from 'react';
 import { AppProps } from 'next/app';
-import { AppProvider } from '../providers/app.provider';
+
+import 'src/scss/app.scss'
+import { AppContext } from 'src/providers/app.context';
+import { Layout } from 'src/components/layout/layout.module'
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
+  const [store, setStore] = useState({
+    search: [],
+  });
   return (
-    <AppProvider>
+    <AppContext.Provider value={{ store, setStore }}>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </AppProvider>
+    </AppContext.Provider>
   )
 }
 

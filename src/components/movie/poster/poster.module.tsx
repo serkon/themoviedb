@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import styles from './poster.module.scss';
-import { MoviePoster } from '~/src/components/movie/movie';
-import { api } from '~/src/configurtion';
+import { MoviePoster } from 'src/components/movie/movie';
+import { api } from 'src/configurtion';
 
 export const MoviePosterComponent = ({ poster, className }: { poster: MoviePoster, className: string }): JSX.Element => {
   return (

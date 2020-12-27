@@ -1,6 +1,6 @@
 import styles from './group.module.scss';
-import { MovieGroup, MovieGroupTitle } from '~/src/components/movie/movie';
-import { MoviePosterComponent } from '~/src/components/movie/poster/poster.module';
+import { MovieGroup, MovieGroupTitle } from 'src/components/movie/movie';
+import { MoviePosterComponent } from 'src/components/movie/poster/poster.module';
 
 export const MovieGroupComponent = ({ list }: { list: MovieGroup }): JSX.Element => {
   const title = MovieGroupTitle[list.title];

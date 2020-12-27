@@ -1,13 +1,13 @@
+import React from 'react';
+import { useContext, useEffect, useState } from 'react';
+
 import Head from 'next/head'
 import styles from './home.module.scss'
 import { SelectComponent } from 'ui/select/select.module';
-import { api, Endpoint } from '~/src/configurtion';
-import { useContext, useEffect, useState } from 'react';
-import { MovieGroup } from '~/src/components/movie/movie';
-import { MovieGroupComponent } from '~/src/components/movie/group/group.module';
-import React from 'react';
-import { AppConsumer } from '~/src/providers/app.consumer';
-import { AppContext } from '~/src/providers/app.provider';
+import { api, Endpoint } from 'src/configurtion';
+import { MovieGroup } from 'src/components/movie/movie';
+import { MovieGroupComponent } from 'src/components/movie/group/group.module';
+import { AppContext } from 'src/providers/app.context';
 
 export default function Home(): JSX.Element {
   const groups = ['POPULAR', 'UPCOMING', 'TOP_RATING', 'TRENDING'];
@@ -35,7 +35,7 @@ export default function Home(): JSX.Element {
   }
 
   return (
-    <AppConsumer>
+    <AppContext.Consumer>
       {
         (data) => <>
           <div className={styles.host}>
@@ -74,7 +74,7 @@ export default function Home(): JSX.Element {
           </div>
         </>
       }
-    </AppConsumer>
+    </AppContext.Consumer>
   )
 }
 

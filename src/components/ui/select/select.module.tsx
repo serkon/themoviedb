@@ -1,4 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
+
 import styles from './select.module.scss';
 
 type Select = {
